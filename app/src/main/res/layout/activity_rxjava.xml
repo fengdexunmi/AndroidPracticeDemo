@@ -12,4 +12,10 @@
         android:layout_height="wrap_content"
         android:text="interval" />
 
+    <Button
+        android:id="@+id/btn_retry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="retry" />
+
 </LinearLayout>

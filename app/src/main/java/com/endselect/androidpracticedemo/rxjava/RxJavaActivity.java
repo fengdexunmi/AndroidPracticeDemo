@@ -20,6 +20,7 @@ import com.endselect.androidpracticedemo.R;
 public class RxJavaActivity extends BaseActivity implements View.OnClickListener {
 
     private Button mBtnInterval; // interval task
+    private Button mBtnRetry;
 
     public static void lanuch(Context context) {
         Intent intent = new Intent(context, RxJavaActivity.class);
@@ -36,8 +37,10 @@ public class RxJavaActivity extends BaseActivity implements View.OnClickListener
 
     private void initView() {
         mBtnInterval = findViewById(R.id.btn_interval);
+        mBtnRetry = findViewById(R.id.btn_retry);
 
         mBtnInterval.setOnClickListener(this);
+        mBtnRetry.setOnClickListener(this);
     }
 
     @Override
@@ -45,6 +48,9 @@ public class RxJavaActivity extends BaseActivity implements View.OnClickListener
         switch (v.getId()) {
             case R.id.btn_interval:
                 clickedOn(IntervalFragment.newInstance());
+                break;
+            case R.id.btn_retry:
+                clickedOn(RetryFragment.newInstance());
                 break;
         }
     }
