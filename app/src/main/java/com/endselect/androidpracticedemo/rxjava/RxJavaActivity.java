@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.endselect.androidpracticedemo.BaseActivity;
 import com.endselect.androidpracticedemo.R;
@@ -21,8 +22,10 @@ public class RxJavaActivity extends BaseActivity implements View.OnClickListener
 
     private Button mBtnInterval; // interval task
     private Button mBtnRetry;
+    private Button mBtnWeb; // 打开web
+    private ImageView mIvSpring;
 
-    public static void lanuch(Context context) {
+    public static void launch(Context context) {
         Intent intent = new Intent(context, RxJavaActivity.class);
         context.startActivity(intent);
     }
@@ -38,9 +41,13 @@ public class RxJavaActivity extends BaseActivity implements View.OnClickListener
     private void initView() {
         mBtnInterval = findViewById(R.id.btn_interval);
         mBtnRetry = findViewById(R.id.btn_retry);
+        mBtnWeb = findViewById(R.id.btn_web);
+        mIvSpring = findViewById(R.id.iv_spring);
 
         mBtnInterval.setOnClickListener(this);
         mBtnRetry.setOnClickListener(this);
+        mBtnWeb.setOnClickListener(this);
+        mIvSpring.setOnClickListener(this);
     }
 
     @Override
@@ -52,6 +59,12 @@ public class RxJavaActivity extends BaseActivity implements View.OnClickListener
             case R.id.btn_retry:
                 clickedOn(RetryFragment.newInstance());
                 break;
+            case R.id.btn_web:
+                clickedOn(WebFragment.newInstance());
+                break;
+            case R.id.iv_spring:
+
+                break;
         }
     }
 
@@ -61,5 +74,9 @@ public class RxJavaActivity extends BaseActivity implements View.OnClickListener
                 .addToBackStack(tag)
                 .replace(android.R.id.content, fragment, tag)
                 .commit();
+    }
+
+    private void startAnimation() {
+
     }
 }
